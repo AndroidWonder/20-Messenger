@@ -11,6 +11,7 @@ package com.course.example.messenger;
 
 import android.app.Activity;
 import android.os.Bundle;
+import android.os.Looper;
 import android.widget.Button;
 import android.widget.TextView;
 import android.view.View;
@@ -27,7 +28,7 @@ public class MessengerActivity extends Activity {
 	private Button button;
 
 	//create Handler for Activity to receive messages from Service
-	Handler handler = new Handler(){
+	Handler handler = new Handler(Looper.getMainLooper()){
      	public void handleMessage(Message msg){
      	    text.append(msg.arg1 + "\n");
      	}
